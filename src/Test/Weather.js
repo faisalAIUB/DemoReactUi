@@ -3,9 +3,9 @@ import { Box, Text, HStack, VStack } from '@chakra-ui/react';
 import { GetWeather } from './TestApi.Service';
 
 
-const Weather = () => {
+const Weather = ({}) => {
     const [weatherList, setWeatherList] = useState([]);
-
+   //console.log(weatherList);
     useEffect(() => {
         (async () => {
             try{
@@ -26,18 +26,23 @@ const Weather = () => {
 
     return (
         <HStack>
-            <Text>aaaaaaaaaaaaaaaaaaaaaa</Text>
-            {weatherList.map((item,i) => {
+            
+            {weatherList?.map((item,i) => {
+                return (
                 <>
                     <Box key={i}>
+                        
                         <Text>{item.Date}</Text>
                         <Text>{item.Summary}</Text>
                     </Box>
                     <hr />
                 </>
+
+                );
             })}
+            
         </HStack>
     );
-}
+};
 
 export default Weather;
